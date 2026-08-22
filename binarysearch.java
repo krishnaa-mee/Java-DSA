@@ -1,0 +1,43 @@
+import java.util.Scanner;
+public class binarysearch {
+    static void main() {
+        Scanner sc = new Scanner(System.in);
+
+                int n = sc.nextInt();
+                int[] arr = new int[n];
+
+                // Input array
+                for (int i = 0; i < n; i++) {
+                    arr[i] = sc.nextInt();
+                }
+        System.out.println("Enter the key to search:");
+
+                int key = sc.nextInt();
+
+                int low = 0;
+                int high = n - 1;
+                boolean found = false;
+
+                while (low <= high) {
+                    int mid = (low + high) / 2;
+
+                    if (arr[mid] == key) {
+                        System.out.println("Element found at index " + mid);
+                        found = true;
+                        break;
+                    }
+                    else if (arr[mid] < key) {
+                        low = mid + 1;
+                    }
+                    else {
+                        high = mid - 1;
+                    }
+                }
+
+                if (!found) {
+                    System.out.println("Element not found");
+                }
+
+
+    }
+}
