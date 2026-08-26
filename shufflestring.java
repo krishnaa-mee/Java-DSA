@@ -1,14 +1,29 @@
 import java.util.Scanner;
 
 public class shufflestring {
-    static void main() {
-        Scanner sc = new Scanner(System.in);
-        String s = sc.nextLine();
 
+    static String shuffle(String s, int[] indices){
         char[] result = new char[s.length()];
-        for(int i = 0; i < s.length(); i++){
-            result[i] = s.charAt(i);
+
+        for (int i = 0; i < s.length(); i++) {
+            result[indices[i]] = s.charAt(i);
         }
-        System.out.println(result);
+        return new String(result);
+    }
+
+    static void main() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter a string: ");
+        String s = in.nextLine();
+
+        int[] indices = new int[s.length()];
+
+        System.out.println("Enter" +s.length()+ "indices:");
+
+        for (int i = 0; i < s.length(); i++) {
+            indices[i] = in.nextInt();
+        }
+        String result = shuffle(s, indices);
+        System.out.println("The shuffled string is: " + result);
     }
 }
